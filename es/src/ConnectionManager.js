@@ -1,8 +1,5 @@
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/**
- * Created by xiangxn on 2017/6/26.
- */
 import Apis from "./ApiInstances";
 import ChainWebSocket from "./ChainWebSocket";
 
