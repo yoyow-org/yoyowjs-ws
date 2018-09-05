@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var myWorker = new SharedWorker("WebSocketWorker.js");//创建SharedWorker对象
+    //myWorker.port.start();
+    myWorker.port.onmessage = function (event) {
+        var result = event.data//获取共享线程返回的数据
+        //alert("计算质数完成" + result);
+        if(result.event==='onopen'){
+            myWorker.port.postMessage({method: "send", pars: ["{}"]});
+        }
+        console.debug(result);
+    }
+
+    function calculate() {
+        console.debug('calculate');
+        myWorker.port.postMessage({method: "init", pars: ["ws://47.90.105.247:8090", 5000]});//还是一样的方式，向共享线程发送数据
+    }
+</script>
+<input type="button" value="计算" onclick="calculate()"/>
+</body>
+</html>
