@@ -15,7 +15,11 @@
     "build-es": "cross-env BABEL_ENV=es babel ./lib -d es",
     "postbuild": "npm run build-es"
   },
-  "author": "YOYOW (https://github.com/yoyow-org)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yoyow-org/yoyowjs-ws.git"
+  },
+  "author": "YOYOW https://github.com/yoyow-org",
   "license": "BSD-2-Clause-FreeBSD",
   "bugs": {
     "url": "https://github.com/yoyow-org/yoyowjs-ws/issues"
