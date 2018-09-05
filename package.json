@@ -1,6 +1,6 @@
 {
   "name": "yoyowjs-ws",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Pure JavaScript yoyow websocket interface for node.js and browsers.",
   "browser": {
     "ws": false
@@ -9,23 +9,13 @@
     "wsdebug": false
   },
   "scripts": {
-    "test": "cross-env BABEL_ENV=test mocha --compilers js:babel-core/register --recursive",
-    "test:watch": "npm test -- --watch",
     "clean": "rimraf ./cjs/* & rimraf ./build/* & rimraf ./es/*",
     "prebuild": "npm run clean",
     "build": "cross-env BABEL_ENV=cjs babel lib --out-dir cjs",
     "build-es": "cross-env BABEL_ENV=es babel ./lib -d es",
-    "postbuild": "npm run browserify && npm run build-es",
-    "prepublish": "npm run build",
-    "browserify": "cross-env NODE_ENV=production browserify cjs/src/ApiInstances.js --standalone yoyowWS -o build/yoyowjs-ws.js -d",
-    "postbrowserify": "cross-env NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --mangle-props --screw-ie8 --output build/yoyowjs-ws.min.js -- build/yoyowjs-ws.js",
-    "bundle": "npm run browserify && npm run minify"
+    "postbuild": "npm run build-es"
   },
-  "author": "YOYOW https://github.com/yoyow-org",
-  "contributors": [
-    "James Calfee <james@jcalfee.info> (https://github.com/jcalfee/)",
-    "Sigve Kvalsvik <bitsharesblocks@gmail.com> (https://github.com/svk31)"
-  ],
+  "author": "YOYOW (https://github.com/yoyow-org)",
   "license": "BSD-2-Clause-FreeBSD",
   "bugs": {
     "url": "https://github.com/yoyow-org/yoyowjs-ws/issues"
