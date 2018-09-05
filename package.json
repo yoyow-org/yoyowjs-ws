@@ -21,6 +21,10 @@
     "postbrowserify": "cross-env NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --mangle-props --screw-ie8 --output build/yoyowjs-ws.min.js -- build/yoyowjs-ws.js",
     "bundle": "npm run browserify && npm run minify"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:yoyow-org/yoyowjs-ws.git"
+  },
   "author": "YOYOW https://github.com/yoyow-org",
   "contributors": [
     "James Calfee <james@jcalfee.info> (https://github.com/jcalfee/)",
