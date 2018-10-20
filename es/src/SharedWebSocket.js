@@ -23,14 +23,16 @@ var SharedWebSocket = function () {
             //console.log('=================', obj);
             _this._procOnMessage(obj.data);
         };
+        /*
         this.WebSocketWorker.addEventListener('error', function (e) {
             this._procError(e.message);
         });
-        /*
-        this.WebSocketWorker.onerror = (e) => {
-            this._procError(e.message);
-        };
         */
+        this.WebSocketWorker.onerror = function (e) {
+            var msg = e && e.message ? e.message : 'unknown error';
+            _this._procError(msg);
+        };
+
         //this.WebSocketWorker.port.start()
     }
 
@@ -74,7 +76,13 @@ var SharedWebSocket = function () {
     };
 
     SharedWebSocket.prototype._procError = function _procError(e) {
-        console.error(e);
+        try {
+            console.error(e);
+        } catch (e) {
+            console.error('other proc error ', e);
+        } finally {
+            this.WebSocketWorker.port.postMessage({ method: "close" });
+        }
     };
 
     SharedWebSocket.prototype.send = function send(str) {
