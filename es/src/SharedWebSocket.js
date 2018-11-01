@@ -17,10 +17,8 @@ var SharedWebSocket = function () {
         this.WebSocketWorker = null;
         var worker_blob = new Blob([webSocketWorker]);
         this.WebSocketWorker = new SharedWorker(window.URL.createObjectURL(worker_blob));
-        //this.WebSocketWorker = new SharedWorker("testWorker.js");
 
         this.WebSocketWorker.port.onmessage = function (obj) {
-            //console.log('=================', obj);
             _this._procOnMessage(obj.data);
         };
         /*
