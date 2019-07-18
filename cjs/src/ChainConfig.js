@@ -22,7 +22,7 @@ _this = {
         Test: {
             core_asset: "TEST",
             address_prefix: "YYW",
-            chain_id: "70f798eec64e1aea86efa8be3466480a1db1f97215a0de0c1a7ab0e1f3fd09fb"
+            chain_id: "95744f6fc3a5fff9affee11e7ff3890a3fe4c3c8069de1fe5cacfa6505aac60e"
         }
     },
 
